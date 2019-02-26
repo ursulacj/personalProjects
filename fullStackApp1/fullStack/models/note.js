@@ -1,19 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var tagSchema = new Schema ({
-    name: {
-        type: String,
-        enum: []
-    }
-})
-
-var moodSchema = new Schema ({
-    mood: {
-        type: String,
-        enum: []
-    }
-})
 
 var noteSchema = new Schema ({
     title: {
@@ -21,10 +8,15 @@ var noteSchema = new Schema ({
         default: Date(),
     },
     content: {
+        type: String,
+        // required: true
+    },
+    mood: {
         type: String
     },
-    mood: [moodSchema],
-    tags: [tagSchema],
+    tags: {
+        type: String
+    },
     public: {
         type: Boolean
     }
